@@ -1,0 +1,313 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+[class*="__container"] {
+    max-width: 1580px;
+    margin: 0px auto;
+    padding: 0 80px;
+}
+body{
+    &._lock{
+        overflow: hidden;
+    }
+}
+html {
+    font-family: "Gotham Pro", Regular, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+ul{
+    list-style: none;
+}
+* img{
+    max-width: 100%;
+}
+$snow: #FFFFFF;
+$white: #F5F5F5;
+$gray: #A1A1A3;
+$black: #333333;
+
+$blue: #2B69DD;
+$orange: #FBAC00;
+$lightGreen: #87B645;
+
+$green: #098B50;
+$izumrud: #026057;
+$red: #EB5757;
+$lightBlue: #75ACFE;
+$ocean: #1BAAD1;
+$yellow: #F8DB73;
+
+$lightGray: #D7D7D7;
+$card: #A0C4FA;
+/*===================HEADER===================*/
+.header{
+    &__container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 100%;
+    }
+    &__logo{
+        max-width: 200px;
+        img{
+            max-width: 200px;
+        }
+    }
+    &__nav{
+        display: flex;
+        align-items: center;
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 1.3;
+    }
+    &__buttons{
+        display: flex;
+        gap: 5px;
+    }
+    &__btn{
+        padding: 16px 80px;
+        color: $snow;
+        background-color: $lightGreen;
+        border: none;
+        border-radius: 5px;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 23px;
+        @media (max-width: 1230px){
+            display: none;
+        }
+        cursor: pointer;
+    }
+}    
+.menu {
+    @media (max-width: 1230px){
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        left: -100%;
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        overflow: auto;
+        background-color: $green;
+        transition: left .38s;
+        &._active{
+            left: 0;
+        }
+        
+    }
+    &__btn{
+        display: none;
+        @media (max-width: 1230px){
+            cursor: pointer;
+            display: block;
+            padding: 16px 80px;
+            color: $snow;
+            background-color: $green;
+            border: none;
+            border-radius: 5px;
+            font-weight: 500;
+            font-size: 24px;
+            line-height: 23px;
+        }
+    }
+    &-icon {
+		display: none;
+		@media (max-width: 1230px) {
+			display: block;
+			height: 18px;
+			width: 30px;
+			position: relative;
+			cursor: pointer;
+			z-index: 5;
+			span {
+				transition: all 0.3s ease 0s;
+				top: calc(50% - 1px);
+				left: 0;
+				position: absolute;
+				width: 100%;
+				height: 2px;
+				background-color: $lightGreen;
+				&:first-child {
+					top: 0;
+				}
+				&:last-child {
+					top: auto;
+					bottom: 0;
+				}
+			}
+			&._active {
+				span {
+					transform: scale(0);
+					&:first-child {
+						transform: rotate(-45deg);
+						top: calc(50% - 1px);
+					}
+					&:last-child {
+						transform: rotate(45deg);
+						bottom: calc(50% - 1px);
+					}
+				}
+			}
+		}
+	}
+    &__body {
+        display: flex;
+        align-items: center;
+        gap: 96px;
+        @media (max-width: 1230px) {
+            flex-direction: column;
+            margin: auto;
+            padding-top: 50px;
+        }
+    }
+    &__item {
+        
+    }
+    &__link {
+        font-family: 'Gotham Pro';
+        font-weight: 400;
+        text-decoration: none;
+        color: $black;
+        transition: color .2s;
+        position: relative;
+        &:before{
+            content:'';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            right: 0;
+            background-color: #000;
+            height: 1px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity .38s;
+        }
+        @media (any-hover: hover){
+            &:hover{
+                color: #000;
+                &:before{
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+        }
+        @media (max-width: 1230px) {
+            color: $white;
+            font-family: "Gotham Pro";
+            font-weight: 500;
+            font-size: 24px;
+            line-height: 23px;
+        }
+    }
+}
+/*===================/HEADER===================*/
+
+/*===================HERO===================*/
+.page {
+}
+.hero {
+        background: url(../img/heroBG.svg) no-repeat;
+        background-size: cover;
+    &__img{
+        width: 100%;    
+        height: 100%;
+        padding-top: 150px;
+        top: 0;
+        left: 0;
+        height: 100%;
+        background-size: clamp(20rem, 100vw, 98.75rem);
+        @media (max-width: 1230px) {
+            height: 700px;
+        }
+    }
+    
+	// .hero__container
+
+	&__container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        
+	}
+
+	// .hero__content
+
+	&__content {
+        display: flex;
+        justify-content: space-between;
+        text-align: center;
+        flex-direction: column;
+        text-align: center;
+	}
+
+	// .hero__title
+
+	&__title {
+        font-size: clamp(1.5rem, 0.929rem + 2.86vw, 3.75rem);
+        width: clamp(19.5rem, 11.119rem + 41.9vw, 52.5rem);
+        line-height: 1.3;
+        padding-top: 144px;
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        @media (max-width: 1050px) {
+            text-shadow: none;
+        }
+	}
+
+	// .hero__text
+
+	&__text {
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 1.3;
+        padding-top: 56px;
+	}
+
+    // .hero__button
+    
+    &__buttons {
+        display: flex;
+        justify-content: center;
+        padding-top: 57px;
+        gap: 54px;
+    }
+    
+    // .hero__btn-green
+    
+    &__btn-green {
+        padding: 14px 18px;
+        color: $snow;
+        background-color: $lightGreen;
+        border: none;
+        border-radius: 5px;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 17px;
+        cursor: pointer;
+    }
+    
+    // .hero__btn
+    
+    &__btn {
+        padding: 14px 18px;
+        color: $black;
+        background-color: $snow;
+        border: 1px solid $card;
+        border-radius: 5px;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 17px;
+        cursor: pointer;
+        @media (max-width: 1050px) {
+            display: none;
+        }
+    }
+    
+    
+}
+
+/*===================/HERO===================*/
